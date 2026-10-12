@@ -1,0 +1,410 @@
+{
+  "cross_recording_findings": 0,
+  "cross_source_findings": 0,
+  "findings": [],
+  "total_frames": 80,
+  "unverifiable_frames": [
+    {
+      "frame_id": "ffpp__DeepFakes__000__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__000__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__000__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__000__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__000__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__000__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__000__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__000__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__001__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__001__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__001__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__001__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__001__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__001__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__001__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__001__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__002__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__002__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__002__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__002__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__002__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__002__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__002__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__002__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__003__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__003__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__003__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__003__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__003__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__003__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__003__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__003__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__004__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__004__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__004__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__004__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__004__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__004__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__004__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__004__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__005__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__005__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__005__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__005__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__005__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__005__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__005__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__005__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__006__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__006__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__006__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__006__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__006__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__006__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__006__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__006__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__007__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__007__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__007__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__007__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__007__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__007__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__007__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__007__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__008__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__008__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__008__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__008__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__008__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__008__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__008__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__008__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__009__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__009__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__009__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__009__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__009__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__009__clip"
+    },
+    {
+      "frame_id": "ffpp__DeepFakes__009__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__DeepFakes__009__clip"
+    },
+    {
+      "frame_id": "ffpp__original__000__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__000__clip"
+    },
+    {
+      "frame_id": "ffpp__original__000__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__000__clip"
+    },
+    {
+      "frame_id": "ffpp__original__000__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__000__clip"
+    },
+    {
+      "frame_id": "ffpp__original__000__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__000__clip"
+    },
+    {
+      "frame_id": "ffpp__original__001__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__001__clip"
+    },
+    {
+      "frame_id": "ffpp__original__001__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__001__clip"
+    },
+    {
+      "frame_id": "ffpp__original__001__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__001__clip"
+    },
+    {
+      "frame_id": "ffpp__original__001__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__001__clip"
+    },
+    {
+      "frame_id": "ffpp__original__002__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__002__clip"
+    },
+    {
+      "frame_id": "ffpp__original__002__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__002__clip"
+    },
+    {
+      "frame_id": "ffpp__original__002__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__002__clip"
+    },
+    {
+      "frame_id": "ffpp__original__002__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__002__clip"
+    },
+    {
+      "frame_id": "ffpp__original__003__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__003__clip"
+    },
+    {
+      "frame_id": "ffpp__original__003__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__003__clip"
+    },
+    {
+      "frame_id": "ffpp__original__003__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__003__clip"
+    },
+    {
+      "frame_id": "ffpp__original__003__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__003__clip"
+    },
+    {
+      "frame_id": "ffpp__original__004__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__004__clip"
+    },
+    {
+      "frame_id": "ffpp__original__004__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__004__clip"
+    },
+    {
+      "frame_id": "ffpp__original__004__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__004__clip"
+    },
+    {
+      "frame_id": "ffpp__original__004__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__004__clip"
+    },
+    {
+      "frame_id": "ffpp__original__005__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__005__clip"
+    },
+    {
+      "frame_id": "ffpp__original__005__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__005__clip"
+    },
+    {
+      "frame_id": "ffpp__original__005__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__005__clip"
+    },
+    {
+      "frame_id": "ffpp__original__005__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__005__clip"
+    },
+    {
+      "frame_id": "ffpp__original__006__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__006__clip"
+    },
+    {
+      "frame_id": "ffpp__original__006__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__006__clip"
+    },
+    {
+      "frame_id": "ffpp__original__006__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__006__clip"
+    },
+    {
+      "frame_id": "ffpp__original__006__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__006__clip"
+    },
+    {
+      "frame_id": "ffpp__original__007__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__007__clip"
+    },
+    {
+      "frame_id": "ffpp__original__007__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__007__clip"
+    },
+    {
+      "frame_id": "ffpp__original__007__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__007__clip"
+    },
+    {
+      "frame_id": "ffpp__original__007__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__007__clip"
+    },
+    {
+      "frame_id": "ffpp__original__008__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__008__clip"
+    },
+    {
+      "frame_id": "ffpp__original__008__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__008__clip"
+    },
+    {
+      "frame_id": "ffpp__original__008__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__008__clip"
+    },
+    {
+      "frame_id": "ffpp__original__008__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__008__clip"
+    },
+    {
+      "frame_id": "ffpp__original__009__clip__f000000",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__009__clip"
+    },
+    {
+      "frame_id": "ffpp__original__009__clip__f000006",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__009__clip"
+    },
+    {
+      "frame_id": "ffpp__original__009__clip__f000013",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__009__clip"
+    },
+    {
+      "frame_id": "ffpp__original__009__clip__f000019",
+      "reason": "missing",
+      "source_video_id": "ffpp__original__009__clip"
+    }
+  ],
+  "verified_frames": 0,
+  "within_source_findings": 0
+}

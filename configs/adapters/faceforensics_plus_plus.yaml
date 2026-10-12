@@ -1,0 +1,129 @@
+# FaceForensics++ adapter configuration
+#
+# WHAT THIS FILE IS
+#   An explicit declaration of one local installation's layout and vocabulary, read by
+#   datasets/adapters/faceforensics_plus_plus.py via
+#     python -m datasets.ingest --dataset-id faceforensics_plus_plus \
+#         --adapter-config configs/adapters/faceforensics_plus_plus.yaml
+#
+# WHAT THIS FILE IS NOT
+#   Evidence that the dataset was downloaded, and not a licence. `license` below is an
+#   unverified marker, and the adapter refuses to produce a manifest while it is one.
+#
+# HOW THE VALUES BELOW WERE CHOSEN
+#   From FaceForensics++'s own documentation of its directory structure, not from
+#   inspecting a download and writing down whatever appeared. Every `label:` line is a
+#   claim about the dataset that a reviewer can check against that documentation.
+#   Nothing here was confirmed against a real local acquisition, because none has been
+#   performed: configs/datasets.yaml still records source_reference: not_verified,
+#   license_status: pending_verification, and approximate_size: unknown.
+#
+#   If your installation is shaped differently, change this file rather than the adapter.
+#   The point of writing it down is that the difference becomes reviewable.
+
+adapter: faceforensics_plus_plus
+dataset_id: faceforensics_plus_plus
+dataset_name: FaceForensics++
+
+# --- Terms -----------------------------------------------------------------
+#
+# UNVERIFIED. FaceForensics++ is distributed to academic/research users under a licence
+# that is not reproduced here because it has not been read. Writing a plausible-looking
+# identifier from memory would be inventing a legal fact.
+#
+# Ingestion is refused while this is a marker. To proceed, a person must:
+#   1. read the dataset's own terms;
+#   2. replace this value with the licence identifier the terms state;
+#   3. record license_status: verified for this dataset in configs/datasets.yaml.
+license: pending_verification
+
+dataset_version: pending_verification
+source_reference: not_verified
+access_date: null
+
+# --- Modality --------------------------------------------------------------
+#
+# This corpus is video. Image use in this project means frames derived from this video
+# later, in a separate manifest; no frame extraction happens during ingestion.
+modality: video
+
+# --- Candidate files -------------------------------------------------------
+#
+# An extension filter decides what counts as a candidate media file. It is not evidence
+# of modality: a file listed here is still recorded as video because of `modality` above,
+# never because of what its name ends in. Metadata files shipped alongside the media are
+# excluded by this list rather than by an assumption about where they live.
+extensions: [".mp4", ".mkv", ".webm", ".avi", ".mov", ".m4v"]
+
+# --- Source recording identity --------------------------------------------
+#
+# false: do not read the parent directory name as a source identifier.
+#
+# Set true only if you have confirmed that your installation nests one directory per
+# source recording. When true, the immediate parent directory's name is recorded as the
+# sample's free-form `source` token — the dataset's own identifier, copied verbatim, not
+# an interpretation. It is what makes "the same source recording, manipulated two ways"
+# expressible later, but it is a claim about the layout, so it is declared rather than
+# assumed.
+source_token_from_parent_directory: false
+
+# --- Layout ----------------------------------------------------------------
+#
+# One entry per manipulation directory this project understands.
+#
+#   label_token : the dataset's own wording, and the key the normalization table is built
+#                 on. This is what makes the mapping explicit: nothing looks the token up
+#                 from the directory name.
+#   label       : the canonical label it translates to, `real` or `fake`.
+#   manipulation: the dataset's manipulation family, when the directory is one. Omitted
+#                 for `original`, because genuine material is not a manipulation and
+#                 recording a type for it would be a claim about the dataset rather than
+#                 about our vocabulary.
+#
+# `Face2Face` means `fake` because the line below says `label: fake`, not because the
+# directory name contains the word "Face".
+#
+# Adding a manipulation family requires editing
+# DECLARED_FACEFORENSICS_MANIPULATIONS in the adapter as well: a new family needs its own
+# review of the dataset's documentation and a canonical type in
+# datasets/schema.py::ManipulationType.
+manipulations:
+  original:
+    label_token: original
+    label: real
+  DeepFakes:
+    label_token: deepfakes
+    label: fake
+    manipulation: deepfakes
+  Face2Face:
+    label_token: face2face
+    label: fake
+    manipulation: face2face
+  FaceSwap:
+    label_token: faceswap
+    label: fake
+    manipulation: faceswap
+  NeuralTextures:
+    label_token: neuraltextures
+    label: fake
+    manipulation: neuraltextures
+
+# Only `original` is required, because without genuine material there is nothing to
+# measure a detector against, and every published FaceForensics++ figure is a
+# manipulation-versus-original comparison.
+#
+# The four manipulation directories are optional on purpose: releases and subsets differ,
+# and an installation may hold some of them. A missing optional directory is reported by
+# the layout inspection and contributes no samples. It is never treated as an empty
+# dataset, and it is never padded with invented ones.
+#
+# If your installation genuinely ships no genuine material, do not satisfy this by
+# weakening `original` to optional — the resulting manifest would look valid and be
+# unmeasurable.
+required_manipulations: [original]
+
+notes: >-
+  Layout declaration for a locally acquired FaceForensics++ directory. Verified only
+  against the dataset's documentation of its structure; no local acquisition has been
+  performed, and licence, version, reference, and size remain unverified in
+  configs/datasets.yaml.

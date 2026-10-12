@@ -1,0 +1,167 @@
+# ---------------------------------------------------------------------------
+# Multimodal Deepfake Detection and Evidence Correlation for Financial
+# Communication
+#
+# Core principle: source code and configuration are versioned.
+# Everything reproducible-but-large or environment-specific is not.
+# ---------------------------------------------------------------------------
+
+# --- Secrets and local configuration ---------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+configs/local.yaml
+configs/*.local.yaml
+secrets/
+
+# --- Python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# --- Virtual environments ---------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# --- Test / coverage / type caches -----------------------------------------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+
+# --- Jupyter ----------------------------------------------------------------
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/*
+*.npy-checkpoint
+
+# --- Node / frontend --------------------------------------------------------
+node_modules/
+frontend/dist/
+frontend/build/
+frontend/.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.eslintcache
+next/
+.nuxt/
+
+# --- Datasets (never version media bytes) ----------------------------------
+datasets/raw/**
+datasets/processed/**
+!datasets/raw/.gitkeep
+!datasets/processed/.gitkeep
+# Manifests, the provenance record beside each manifest, and splits ARE tracked:
+# together they record which files were used, their hashes, and where they came from.
+!datasets/manifests/**
+!datasets/splits/**
+
+# --- Model artifacts, embeddings, indexes -----------------------------------
+artifacts/
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.engine
+*.h5
+*.keras
+*.safetensors
+*.pkl
+*.pickle
+*.joblib
+*.npy
+*.npz
+*.faiss
+*.index
+
+# --- Generated figures, reports, logs ---------------------------------------
+figures/
+logs/
+reports/output/
+reports/**/*.png
+reports/**/*.jpg
+reports/**/*.pdf
+reports/**/*.html
+!reports/templates/
+# Markdown/JSON/CSV result summaries are tracked; binary renderings are not.
+!reports/**/*.md
+!reports/**/*.json
+!reports/**/*.csv
+
+# --- Experiment run outputs -------------------------------------------------
+experiments/runs/
+wandb/
+mlruns/
+neptune/
+*.dvc
+.dvc/tmp
+dvc.lock
+
+# --- Threat intelligence cache ---------------------------------------------
+artifacts/ti_cache/
+**/ti_cache/
+intel_cache/
+
+# --- Media / media evidence -------------------------------------------------
+# Repo-wide, so no dataset bytes enter git by accident - including the tiny
+# stand-in files the ingestion tests generate under a temporary directory.
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.mp3
+*.wav
+*.flac
+*.m4a
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.bmp
+*.tiff
+*.raw
+*.y4m
+
+# --- Exported reports / archives --------------------------------------------
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.iso
+
+# --- Editor / OS / tooling --------------------------------------------------
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+.AppleDouble
+.LSOverride
+
+# --- Fonts and downloaded binaries ------------------------------------------
+*.ttf
+*.otf
+*.woff
+*.woff2

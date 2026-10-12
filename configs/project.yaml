@@ -1,0 +1,246 @@
+# Project-wide configuration
+# Single source of truth for paths, seeding, and reproducibility settings.
+# Consumed by ml/, forensic/, threat_intelligence/, experiments/, backend/.
+
+project:
+  name: deepfake-finance-research
+  title: >-
+    Multimodal Deepfake Detection and Evidence Correlation
+    for Financial Communication
+  version: 0.1.0
+  stage: foundation   # foundation -> data -> models -> experiments -> api -> ui
+  description: >-
+    Research prototype for detecting manipulated image, audio, and video media
+    in financial communication contexts, correlating forensic evidence, and
+    producing uncertainty-aware forensic reports.
+
+# ---------------------------------------------------------------------------
+# Reproducibility
+# ---------------------------------------------------------------------------
+reproducibility:
+  global_seed: 20260101
+  deterministic_algorithms: true
+  # Warn (not error) so debugging stays possible while runs stay comparable.
+  cudnn_deterministic: true
+  benchmark: false
+  record_environment: true          # capture pip freeze, git sha, driver/CUDA versions
+  track_run_artifacts: true
+  runs_dir: experiments/runs        # one subdir per run id, appended to .gitignore
+  naming_template: "{module}/{task}/{dataset}/{seed}_{timestamp}"
+
+# ---------------------------------------------------------------------------
+# Paths (relative to repository root)
+#
+#   source    : must exist in the repository; verified by tests.
+#   generated : created at runtime and git-ignored; verified as ignored.
+# ---------------------------------------------------------------------------
+paths:
+  source:
+    datasets_raw: datasets/raw
+    datasets_processed: datasets/processed
+    datasets_manifests: datasets/manifests
+    datasets_splits: datasets/splits
+    experiments: experiments
+    reports: reports
+    notebooks: notebooks
+    configs: configs
+  generated:
+    artifacts: artifacts              # model weights, checkpoints, embeddings (untracked)
+    figures: figures                  # generated plots and figures (untracked)
+    logs: logs                        # runtime logs (untracked)
+
+# ---------------------------------------------------------------------------
+# Data handling
+# ---------------------------------------------------------------------------
+data:
+  default_split: splits/default.json
+  default_manifest: manifests/default.jsonl
+  manifest_format: jsonl
+  manifest_schema_version: 1
+  # Media bytes stay out of git; manifests record paths + hashes instead.
+  verify_hashes_on_load: true
+  hashing:
+    algorithm: sha256
+    chunk_size_bytes: 1048576
+  preprocessing:
+    deterministic: true
+    image: { target_size: [224, 224], color_space: RGB }
+    audio: { sample_rate: 16000, mono: true, max_duration_s: 30 }
+    video: { target_fps: 25, max_duration_s: 60 }
+    # Filled in once augmentation policies are defined per experiment.
+    augmentations: disabled
+
+# ---------------------------------------------------------------------------
+# Dataset ingestion
+#
+# Convention, not preference: raw media lives in datasets/raw/<dataset_id>/,
+# manifests and their provenance records in datasets/manifests/. The CLI reads
+# these values through ml.reproducibility.config.get_path, so the paths above
+# stay the single source of truth.
+# ---------------------------------------------------------------------------
+ingestion:
+  command: python -m datasets.ingest
+  script_version: "1"
+  raw_dir: datasets/raw            # per-dataset subdirectory: <raw_dir>/<dataset_id>/
+  manifest_dir: datasets/manifests
+  manifest_name: "{dataset_id}.jsonl"
+  provenance_name: "{dataset_id}.provenance.json"
+  adapters_dir: configs/adapters   # declarative TemplateAdapter JSON files
+  # Licences are confirmed per dataset in the adapter config; ingestion refuses
+  # to run without one rather than assuming a permissive default.
+  require_license: true
+  verify_hashes_after_write: true
+  # Manifests carry no timestamp so identical inputs reproduce identical bytes;
+  # the ingestion timestamp lives in the provenance record alone.
+  deterministic_manifest: true
+  # No research dataset is selected or downloaded at this stage.
+  datasets_selected: []
+
+# ---------------------------------------------------------------------------
+# Dataset registry
+#
+# configs/datasets.yaml is the versioned planning layer: which datasets and
+# public-intelligence sources we intend to evaluate, in what role, and what is
+# still unverified about each. It points at data we do not have. Reading it never
+# downloads anything; python -m datasets.registry only reads and checks the file.
+# ---------------------------------------------------------------------------
+dataset_registry:
+  file: configs/datasets.yaml
+  command: python -m datasets.registry
+  registry_version: 1
+  # Every entry starts at candidate or pending_verification. Nothing here is
+  # approved, available locally, or cleared for use.
+  approved_datasets: []
+  datasets_acquired: []
+
+# ---------------------------------------------------------------------------
+# Module enablement (no implementation yet; used for orchestration later)
+# ---------------------------------------------------------------------------
+modules:
+  image_detection: { enabled: false, path: ml/image }
+  audio_detection: { enabled: false, path: ml/audio }
+  video_detection: { enabled: false, path: ml/video }
+  cross_dataset_generalization: { enabled: false, path: ml/generalization }
+  multimodal_fusion: { enabled: false, path: ml/fusion }
+  explainability: { enabled: false, path: ml/explainability }
+  risk_assessment: { enabled: false, path: ml/risk }
+  forensic_metadata: { enabled: false, path: forensic/metadata }
+  forensic_hashing: { enabled: false, path: forensic/hashing }
+  provenance: { enabled: false, path: forensic/provenance }
+  chain_of_custody: { enabled: false, path: forensic/chain_of_custody }
+  evidence_store: { enabled: false, path: forensic/evidence }
+  threat_intel_collectors: { enabled: false, path: threat_intelligence/collectors }
+  threat_intel_source_registry: { enabled: false, path: threat_intelligence/source_registry }
+  fingerprinting: { enabled: false, path: threat_intelligence/fingerprinting }
+  similarity: { enabled: false, path: threat_intelligence/similarity }
+  campaign_analysis: { enabled: false, path: threat_intelligence/campaign }
+  correlation: { enabled: false, path: threat_intelligence/correlation }
+
+# ---------------------------------------------------------------------------
+# Experiment defaults
+# ---------------------------------------------------------------------------
+experiments:
+  seeds: [20260101, 20260102, 20260103]
+  default_runs_per_seed: 3
+  metrics: [accuracy, precision, recall, f1, auc, eer, min_tckr]
+  # Deepfake detection is imbalanced; threshold sweeps are mandatory.
+  threshold_sweep: true
+  calibration: { method: none, metrics: [ece, brier] }
+  ablation_required: true
+  reporting:
+    formats: [json, csv, markdown]
+    include_per_sample_predictions: true
+    include_confidence_intervals: true
+    confidence_level: 0.95
+
+# ---------------------------------------------------------------------------
+# Evaluation guardrails
+# ---------------------------------------------------------------------------
+evaluation:
+  report_per_class_metrics: true
+  report_domain_shift_metrics: true
+  prohibit_test_set_tuning: true
+  require_documented_split_rationale: true
+
+# ---------------------------------------------------------------------------
+# Service layer (schema only; not implemented yet)
+# ---------------------------------------------------------------------------
+services:
+  api:
+    enabled: false
+    framework: fastapi
+    host: 127.0.0.1
+    port: 8000
+    docs_enabled: true
+  database:
+    enabled: false
+    engine: postgresql
+    host: localhost
+    port: 5432
+    name: deepfake_finance
+    migrations: backend/migrations
+  frontend:
+    enabled: false
+    framework: react
+    language: typescript
+    dev_port: 5173
+
+# ---------------------------------------------------------------------------
+# Forensics / provenance defaults
+# ---------------------------------------------------------------------------
+forensics:
+  default_hash_algorithms: [sha256, sha512]
+  perceptual_hash: { enabled: false, algorithms: [phash], hash_size: 8 }
+  metadata_extraction: { enabled: false, exiftool_path: null }
+  chain_of_custody:
+    enabled: false
+    append_only: true
+    timestamp_format: rfc3339_utc
+    require_actor_id: true
+  reports:
+    template_dir: reports/templates
+    output_format: markdown
+    include_confidence_and_uncertainty: true
+
+# ---------------------------------------------------------------------------
+# Threat intelligence (disabled by default; explicit opt-in required)
+# ---------------------------------------------------------------------------
+threat_intelligence:
+  enabled: false
+  allow_network_access: false
+  require_opt_in: true
+  rate_limit_per_minute: 30
+  cache_ttl_hours: 24
+  cache_dir: artifacts/ti_cache
+  sources:
+    registry: threat_intelligence/source_registry/registry.yaml
+    enabled_sources: []
+  collection:
+    # Only metadata about known-bad samples; never redistribute media.
+    store_media: false
+    allowed_domains: []
+
+# ---------------------------------------------------------------------------
+# Financial communication context
+# ---------------------------------------------------------------------------
+financial_context:
+  enabled: false
+  locales: []
+  channels: [voice_call, email, social_media, video_conference, press_release]
+  # Financial harm categories used later for risk scoring.
+  harm_categories:
+    - impersonation_of_executive
+    - market_manipulation
+    - fraudulent_investment_advice
+    - payment_redirection
+    - credential_theft
+    - misinformation
+
+# ---------------------------------------------------------------------------
+# Logging
+# ---------------------------------------------------------------------------
+logging:
+  level: INFO
+  format: "%(asctime)s %(levelname)s %(name)s %(message)s"
+  file: logs/run.log
+  structured_json: false

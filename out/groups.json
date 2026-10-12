@@ -1,0 +1,339 @@
+{
+  "group_count": 10,
+  "groups": [
+    {
+      "dataset_name": "ffpp",
+      "frame_count": 8,
+      "frame_ids": [
+        "ffpp__DeepFakes__000__clip__f000000",
+        "ffpp__DeepFakes__000__clip__f000006",
+        "ffpp__DeepFakes__000__clip__f000013",
+        "ffpp__DeepFakes__000__clip__f000019",
+        "ffpp__original__000__clip__f000000",
+        "ffpp__original__000__clip__f000006",
+        "ffpp__original__000__clip__f000013",
+        "ffpp__original__000__clip__f000019"
+      ],
+      "group_id": "ffpp__000__clip",
+      "labels": [
+        "fake",
+        "real"
+      ],
+      "manipulation_types": [
+        "synthetic_media",
+        "unknown"
+      ],
+      "source_video_ids": [
+        "ffpp__DeepFakes__000__clip",
+        "ffpp__original__000__clip"
+      ],
+      "source_video_sha256": [
+        "4988110426eec3cfbd3293dd8d7ca88be7d36838638bd6064d696a7990e6aef4",
+        "a893d1616dcfd74f4dc96bad5dd4cf20365a2dddb10aa69490be198248fd325d"
+      ],
+      "stratification_key": "fake+real",
+      "video_count": 2
+    },
+    {
+      "dataset_name": "ffpp",
+      "frame_count": 8,
+      "frame_ids": [
+        "ffpp__DeepFakes__001__clip__f000000",
+        "ffpp__DeepFakes__001__clip__f000006",
+        "ffpp__DeepFakes__001__clip__f000013",
+        "ffpp__DeepFakes__001__clip__f000019",
+        "ffpp__original__001__clip__f000000",
+        "ffpp__original__001__clip__f000006",
+        "ffpp__original__001__clip__f000013",
+        "ffpp__original__001__clip__f000019"
+      ],
+      "group_id": "ffpp__001__clip",
+      "labels": [
+        "fake",
+        "real"
+      ],
+      "manipulation_types": [
+        "synthetic_media",
+        "unknown"
+      ],
+      "source_video_ids": [
+        "ffpp__DeepFakes__001__clip",
+        "ffpp__original__001__clip"
+      ],
+      "source_video_sha256": [
+        "ed6727554e38e0468c9999a8c42df2dcc01e8b178e2cec5122aa806b81a14344",
+        "ff405cd61aa7d44f7b973cc5b24d71266b1f76618e8be2195f72dc1789d3bd7a"
+      ],
+      "stratification_key": "fake+real",
+      "video_count": 2
+    },
+    {
+      "dataset_name": "ffpp",
+      "frame_count": 8,
+      "frame_ids": [
+        "ffpp__DeepFakes__002__clip__f000000",
+        "ffpp__DeepFakes__002__clip__f000006",
+        "ffpp__DeepFakes__002__clip__f000013",
+        "ffpp__DeepFakes__002__clip__f000019",
+        "ffpp__original__002__clip__f000000",
+        "ffpp__original__002__clip__f000006",
+        "ffpp__original__002__clip__f000013",
+        "ffpp__original__002__clip__f000019"
+      ],
+      "group_id": "ffpp__002__clip",
+      "labels": [
+        "fake",
+        "real"
+      ],
+      "manipulation_types": [
+        "synthetic_media",
+        "unknown"
+      ],
+      "source_video_ids": [
+        "ffpp__DeepFakes__002__clip",
+        "ffpp__original__002__clip"
+      ],
+      "source_video_sha256": [
+        "c48e341b3a9ee43263b1ba7fe60a898c8b54c2229ab42411589a2bb15a0c91f1",
+        "f2a0d29ce604853d85ee2d5dcd15f67fa91aa530eb7accf48ef5cf6a1dd21be1"
+      ],
+      "stratification_key": "fake+real",
+      "video_count": 2
+    },
+    {
+      "dataset_name": "ffpp",
+      "frame_count": 8,
+      "frame_ids": [
+        "ffpp__DeepFakes__003__clip__f000000",
+        "ffpp__DeepFakes__003__clip__f000006",
+        "ffpp__DeepFakes__003__clip__f000013",
+        "ffpp__DeepFakes__003__clip__f000019",
+        "ffpp__original__003__clip__f000000",
+        "ffpp__original__003__clip__f000006",
+        "ffpp__original__003__clip__f000013",
+        "ffpp__original__003__clip__f000019"
+      ],
+      "group_id": "ffpp__003__clip",
+      "labels": [
+        "fake",
+        "real"
+      ],
+      "manipulation_types": [
+        "synthetic_media",
+        "unknown"
+      ],
+      "source_video_ids": [
+        "ffpp__DeepFakes__003__clip",
+        "ffpp__original__003__clip"
+      ],
+      "source_video_sha256": [
+        "48f377fecd026ecc9989b5899b5d622e821b3cd9024a47cf2e273f3b68cc3070",
+        "92cadb7c61b52488822bc8adda0cb625959b0c057ac7c21d60df605f07d4a867"
+      ],
+      "stratification_key": "fake+real",
+      "video_count": 2
+    },
+    {
+      "dataset_name": "ffpp",
+      "frame_count": 8,
+      "frame_ids": [
+        "ffpp__DeepFakes__004__clip__f000000",
+        "ffpp__DeepFakes__004__clip__f000006",
+        "ffpp__DeepFakes__004__clip__f000013",
+        "ffpp__DeepFakes__004__clip__f000019",
+        "ffpp__original__004__clip__f000000",
+        "ffpp__original__004__clip__f000006",
+        "ffpp__original__004__clip__f000013",
+        "ffpp__original__004__clip__f000019"
+      ],
+      "group_id": "ffpp__004__clip",
+      "labels": [
+        "fake",
+        "real"
+      ],
+      "manipulation_types": [
+        "synthetic_media",
+        "unknown"
+      ],
+      "source_video_ids": [
+        "ffpp__DeepFakes__004__clip",
+        "ffpp__original__004__clip"
+      ],
+      "source_video_sha256": [
+        "4b85165253df9c8945e39eb9b907dffc8bd93bfc2613bc3417a2d803cb73f6a7",
+        "7d3ac633daf2565828be227c2d85a41eff0f67d00dc3e87072b0ad92dd375dc9"
+      ],
+      "stratification_key": "fake+real",
+      "video_count": 2
+    },
+    {
+      "dataset_name": "ffpp",
+      "frame_count": 8,
+      "frame_ids": [
+        "ffpp__DeepFakes__005__clip__f000000",
+        "ffpp__DeepFakes__005__clip__f000006",
+        "ffpp__DeepFakes__005__clip__f000013",
+        "ffpp__DeepFakes__005__clip__f000019",
+        "ffpp__original__005__clip__f000000",
+        "ffpp__original__005__clip__f000006",
+        "ffpp__original__005__clip__f000013",
+        "ffpp__original__005__clip__f000019"
+      ],
+      "group_id": "ffpp__005__clip",
+      "labels": [
+        "fake",
+        "real"
+      ],
+      "manipulation_types": [
+        "synthetic_media",
+        "unknown"
+      ],
+      "source_video_ids": [
+        "ffpp__DeepFakes__005__clip",
+        "ffpp__original__005__clip"
+      ],
+      "source_video_sha256": [
+        "8c3f00bc999dd0a7ec263a9a5582739b0d1fd261710e1c9d86b9acf1d7c1fc3c",
+        "a1750f5749ab32d239ab91985b9c837de2c9b66ab1a3c520b89f12f9eca344e3"
+      ],
+      "stratification_key": "fake+real",
+      "video_count": 2
+    },
+    {
+      "dataset_name": "ffpp",
+      "frame_count": 8,
+      "frame_ids": [
+        "ffpp__DeepFakes__006__clip__f000000",
+        "ffpp__DeepFakes__006__clip__f000006",
+        "ffpp__DeepFakes__006__clip__f000013",
+        "ffpp__DeepFakes__006__clip__f000019",
+        "ffpp__original__006__clip__f000000",
+        "ffpp__original__006__clip__f000006",
+        "ffpp__original__006__clip__f000013",
+        "ffpp__original__006__clip__f000019"
+      ],
+      "group_id": "ffpp__006__clip",
+      "labels": [
+        "fake",
+        "real"
+      ],
+      "manipulation_types": [
+        "synthetic_media",
+        "unknown"
+      ],
+      "source_video_ids": [
+        "ffpp__DeepFakes__006__clip",
+        "ffpp__original__006__clip"
+      ],
+      "source_video_sha256": [
+        "2dc7029a1d1295ab39c06f795294000d855823f1b0f4dde364d0c10fbea4e948",
+        "74942c7dc1e0888d91d8afc417419c16f21a82f0a9df6e6743cb79001d43735d"
+      ],
+      "stratification_key": "fake+real",
+      "video_count": 2
+    },
+    {
+      "dataset_name": "ffpp",
+      "frame_count": 8,
+      "frame_ids": [
+        "ffpp__DeepFakes__007__clip__f000000",
+        "ffpp__DeepFakes__007__clip__f000006",
+        "ffpp__DeepFakes__007__clip__f000013",
+        "ffpp__DeepFakes__007__clip__f000019",
+        "ffpp__original__007__clip__f000000",
+        "ffpp__original__007__clip__f000006",
+        "ffpp__original__007__clip__f000013",
+        "ffpp__original__007__clip__f000019"
+      ],
+      "group_id": "ffpp__007__clip",
+      "labels": [
+        "fake",
+        "real"
+      ],
+      "manipulation_types": [
+        "synthetic_media",
+        "unknown"
+      ],
+      "source_video_ids": [
+        "ffpp__DeepFakes__007__clip",
+        "ffpp__original__007__clip"
+      ],
+      "source_video_sha256": [
+        "45b76bb2859e933a6670cb6fdbbe1c56ed6c3e3c89ca1adad7491313f762df0d",
+        "4d4e38d0f4d4c6e374364f1ae43f2f3b456d418e21ab8caa8d63e01ae2a0eb44"
+      ],
+      "stratification_key": "fake+real",
+      "video_count": 2
+    },
+    {
+      "dataset_name": "ffpp",
+      "frame_count": 8,
+      "frame_ids": [
+        "ffpp__DeepFakes__008__clip__f000000",
+        "ffpp__DeepFakes__008__clip__f000006",
+        "ffpp__DeepFakes__008__clip__f000013",
+        "ffpp__DeepFakes__008__clip__f000019",
+        "ffpp__original__008__clip__f000000",
+        "ffpp__original__008__clip__f000006",
+        "ffpp__original__008__clip__f000013",
+        "ffpp__original__008__clip__f000019"
+      ],
+      "group_id": "ffpp__008__clip",
+      "labels": [
+        "fake",
+        "real"
+      ],
+      "manipulation_types": [
+        "synthetic_media",
+        "unknown"
+      ],
+      "source_video_ids": [
+        "ffpp__DeepFakes__008__clip",
+        "ffpp__original__008__clip"
+      ],
+      "source_video_sha256": [
+        "3ea07dd886d0df900d4e26a564aacb4c107bbd029bc1fe09777113242d4c9eb0",
+        "fd0505d3fd8542381853b6ea4225493dcbf2d44e9480b584077ee7c1f6ad0cf3"
+      ],
+      "stratification_key": "fake+real",
+      "video_count": 2
+    },
+    {
+      "dataset_name": "ffpp",
+      "frame_count": 8,
+      "frame_ids": [
+        "ffpp__DeepFakes__009__clip__f000000",
+        "ffpp__DeepFakes__009__clip__f000006",
+        "ffpp__DeepFakes__009__clip__f000013",
+        "ffpp__DeepFakes__009__clip__f000019",
+        "ffpp__original__009__clip__f000000",
+        "ffpp__original__009__clip__f000006",
+        "ffpp__original__009__clip__f000013",
+        "ffpp__original__009__clip__f000019"
+      ],
+      "group_id": "ffpp__009__clip",
+      "labels": [
+        "fake",
+        "real"
+      ],
+      "manipulation_types": [
+        "synthetic_media",
+        "unknown"
+      ],
+      "source_video_ids": [
+        "ffpp__DeepFakes__009__clip",
+        "ffpp__original__009__clip"
+      ],
+      "source_video_sha256": [
+        "2d9261abcfa0d418a0eee897c6fb54e6f1cfc390a65e6e21b0df300ec7330b21",
+        "9f0e392c3027b48f1796d9a6924447e857c3a6eb605095eb33917d7f6583323d"
+      ],
+      "stratification_key": "fake+real",
+      "video_count": 2
+    }
+  ],
+  "is_consistent": true,
+  "total_frames": 80,
+  "unlinked_frames": [],
+  "video_id_reuse": {}
+}

@@ -1,0 +1,76 @@
+# Ruff configuration.
+#
+# Lint results are part of a run's reproducibility record: a rule that is enabled by
+# default in one ruff version and not another would otherwise change results
+# silently. So the ruleset, line length, and exclusions are pinned here rather than
+# inherited from ruff's evolving defaults.
+#
+# Verify with:  python -m ruff check .
+
+line-length = 100
+target-version = "py313"
+extend-exclude = [".venv", "node_modules", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache"]
+
+[lint]
+select = [
+    "F",     # pyflakes: unused imports, undefined names, f-string issues
+    "E",     # pycodestyle errors
+    "W",     # pycodestyle warnings
+    "I",     # isort: import ordering
+    "N",     # pep8-naming
+    "UP",    # pyupgrade: modern syntax
+    "B",     # flake8-bugbear
+    "A",     # flake8-builtins
+    "C4",    # flake8-comprehensions
+    "DTZ",   # flake8-datetimez: timestamps must be timezone-aware
+    "T20",   # flake8-print: no stray print() in library code
+    "SIM",   # flake8-simplify
+    "PTH",   # flake8-use-pathlib: pathlib over os.path
+    "RUF",   # ruff-specific
+    "PIE",   # flake8-pie
+    "ISC",   # flake8-implicit-str-concat
+    "TRY",   # tryceratops: exception hygiene
+]
+ignore = [
+    # TRY003 forbids long inline exception messages. This codebase deliberately
+    # raises with specific, actionable messages that name the offending field and
+    # value; suppressing that would defeat the point of the validation layer.
+    "TRY003",
+    # UP042 prefers enum.StrEnum. str+Enum is kept so that member values compare and
+    # serialize identically to the plain strings used in JSON and YAML manifests,
+    # which must remain readable without importing this package.
+    "UP042",
+    # Tests legitimately nest with-blocks and assert on raw config mappings.
+    "SIM117",
+    # Assertion rewriting is disabled for the structural smoke tests that must run
+    # without pytest installed; see scripts/verify_structure.py.
+    "S101",
+]
+
+[lint.per-file-ignores]
+# Test files: assert on raw config mappings and construct payloads dynamically.
+"tests/**" = ["B011", "N802", "SIM117"]
+# Scripts are CLI entry points and are allowed to print.
+"scripts/**" = ["T20"]
+# The ingestion CLI is the project's second entry point and reports to stdout/stderr.
+"datasets/ingest.py" = ["T20"]
+# The registry CLI is the project's third entry point and reports to stdout/stderr.
+"datasets/registry.py" = ["T20"]
+# The acquisition CLI is the project's fourth entry point and reports to stdout/stderr.
+"datasets/acquisition.py" = ["T20"]
+# The HTTP handler overrides BaseHTTPRequestHandler.do_GET/do_POST/do_OPTIONS, whose
+# upper-cased names are part of the stdlib's request-dispatch protocol.
+"backend/api.py" = ["N802"]
+# Dataset and experiment schema modules carry long canonical vocabularies.
+"datasets/schema.py" = ["RUF022"]
+"datasets/normalization.py" = ["RUF022"]
+"datasets/__init__.py" = ["RUF022"]
+"experiments/results.py" = ["RUF022"]
+
+[lint.flake8-tidy-imports]
+# Intra-project imports are absolute from the repository root.
+ban-relative-imports = "parents"
+
+[format]
+line-ending = "lf"
+docstring-code-format = true

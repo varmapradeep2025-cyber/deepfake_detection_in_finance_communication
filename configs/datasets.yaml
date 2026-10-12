@@ -1,0 +1,383 @@
+# Dataset and public-intelligence source registry
+#
+# WHAT THIS FILE IS
+#   A planning and configuration layer: what we intend to evaluate, and on what terms.
+#
+# WHAT THIS FILE IS NOT
+#   Evidence that anything has been downloaded. No entry here is approved, no entry is
+#   available locally, and no licence, access route, size, or URL has been verified.
+#
+# LOADED BY
+#   datasets/registry.py -- python -m datasets.registry --validate
+#
+# VOCABULARIES
+#   The allowed values for modality, research_role, status, source_type, access_type,
+#   license_status, label scheme, and generalization group id are defined in
+#   datasets/registry.py, not here. One authority, no drift: a value that is not in the
+#   code is rejected rather than quietly accepted.
+#
+# HONESTY RULES ENFORCED HERE
+#   * Unverified information is written as unknown / pending / pending_verification /
+#     not_verified. It is never replaced with a plausible guess.
+#   * source_reference is not_verified for every entry, because no reference has been
+#     read and confirmed yet. An invented URL survives review and misleads later readers.
+#   * usage flags (*_allowed) state our INTENT. They grant nothing: acquisition is gated
+#     on status, and a candidate is not approved.
+#   * No raw dataset bytes are ever committed. Only manifests, provenance records, and
+#     this registry are versioned.
+#
+# See docs/dataset_registry.md for the claim boundaries this file is written under.
+
+registry_version: 1
+
+datasets:
+
+  # -------------------------------------------------------------------------
+  # Video / image deepfake detection
+  # -------------------------------------------------------------------------
+
+  faceforensics_plus_plus:
+    dataset_id: faceforensics_plus_plus
+    name: FaceForensics++
+    modality: video
+    derived_modalities: [image]   # frames may later be derived for the image experiment
+    source_type: research_dataset
+    research_role: [source_domain, training, in_domain_test]
+    status: candidate
+    access_type: unknown
+    license_status: pending_verification
+    source_reference: not_verified
+    version: unknown
+    train_allowed: true
+    validation_allowed: true
+    test_allowed: true
+    unseen_test_allowed: false      # the source domain is by definition not unseen
+    generalization_groups: [video_deepfake, image_deepfake]
+    approximate_size: unknown
+    label_schema:
+      scheme: binary_real_fake
+      values: [real, fake]
+      description: >-
+        Canonical scheme only. This dataset's own label wording has not been read yet and
+        is normalized later by the dataset adapter, never inferred here.
+    manipulation_types: pending_verification
+    requires_request: unknown
+    requires_terms_acceptance: unknown
+    redistribution_allowed: pending_verification
+    acquisition:
+      acquired: false
+      access_date: null
+      version: null
+      local_path: null
+    notes: >-
+      Planned source domain for both the video and the image experiment. Image use means
+      frames derived later from the video material; no frame extraction has been performed
+      and none is part of this configuration layer.
+
+  celeb_df_v2:
+    dataset_id: celeb_df_v2
+    name: Celeb-DF-v2
+    modality: video
+    derived_modalities: [image]   # frames may later be derived for the image experiment
+    source_type: research_dataset
+    research_role: [target_domain, unseen_test, external_benchmark]
+    status: candidate
+    access_type: unknown
+    license_status: pending_verification
+    source_reference: not_verified
+    version: unknown
+    train_allowed: false           # held out: training on it would void the unseen-test claim
+    validation_allowed: false
+    test_allowed: false
+    unseen_test_allowed: true
+    generalization_groups: [video_deepfake, image_deepfake]
+    approximate_size: unknown
+    label_schema:
+      scheme: binary_real_fake
+      values: [real, fake]
+      description: >-
+        Canonical scheme only. The dataset's own label wording is unverified and will be
+        normalized by the dataset adapter at ingestion time.
+    manipulation_types: pending_verification
+    requires_request: unknown
+    requires_terms_acceptance: unknown
+    redistribution_allowed: pending_verification
+    acquisition:
+      acquired: false
+      access_date: null
+      version: null
+      local_path: null
+    notes: >-
+      Planned target domain: the unseen dataset that makes a generalization claim
+      meaningful. Held out of training and validation by design.
+
+  # -------------------------------------------------------------------------
+  # Audio deepfake detection
+  # -------------------------------------------------------------------------
+
+  asvspoof_2021_df:
+    dataset_id: asvspoof_2021_df
+    name: ASVspoof 2021 DF
+    modality: audio
+    source_type: benchmark_dataset
+    research_role: [source_domain, training, in_domain_test]
+    status: candidate
+    access_type: unknown
+    license_status: pending_verification
+    source_reference: not_verified
+    version: unknown
+    train_allowed: true
+    validation_allowed: true
+    test_allowed: true
+    unseen_test_allowed: false
+    generalization_groups: [audio_deepfake]
+    approximate_size: unknown
+    label_schema:
+      scheme: binary_real_fake
+      values: [real, fake]
+      description: >-
+        Canonical scheme only. Whether this corpus states a finer-grained spoofing type
+        per sample is unverified; nothing is asserted here.
+    manipulation_types: pending_verification
+    requires_request: unknown
+    requires_terms_acceptance: unknown
+    redistribution_allowed: pending_verification
+    acquisition:
+      acquired: false
+      access_date: null
+      version: null
+      local_path: null
+    notes: >-
+      Planned source domain for the audio experiment. Access conditions for this corpus
+      are unverified and are a prerequisite, not an assumption.
+
+  fakeavceleb:
+    dataset_id: fakeavceleb
+    name: FakeAVCeleb
+    modality: multimodal
+    derived_modalities: [audio, video]
+    source_type: benchmark_dataset
+    research_role: [target_domain, unseen_test, external_benchmark]
+    status: candidate
+    access_type: unknown
+    license_status: pending_verification
+    source_reference: not_verified
+    version: unknown
+    train_allowed: false
+    validation_allowed: false
+    test_allowed: false
+    unseen_test_allowed: true
+    generalization_groups: [audio_deepfake]
+    approximate_size: unknown
+    label_schema:
+      scheme: binary_real_fake
+      values: [real, fake]
+      description: >-
+        Canonical scheme only. Audio and video components are normalized separately by the
+        dataset adapter when one exists.
+    manipulation_types: pending_verification
+    requires_request: unknown
+    requires_terms_acceptance: unknown
+    # Unverified rights information stays unverified. This project does not redistribute
+    # dataset media under any circumstances, which is a separate, stricter policy.
+    redistribution_allowed: pending_verification
+    acquisition:
+      acquired: false
+      access_date: null
+      version: null
+      local_path: null
+    notes: >-
+      Planned external and unseen benchmark spanning audio and video. Rights information
+      is unverified and must not be assumed to permit redistribution.
+
+  # -------------------------------------------------------------------------
+  # QR and URL phishing benchmarks
+  # -------------------------------------------------------------------------
+
+  cic_trap4phish:
+    dataset_id: cic_trap4phish
+    name: CIC-Trap4Phish
+    modality: [qr, url]
+    source_type: benchmark_dataset
+    research_role: [external_benchmark]
+    # Licensing and access verification for this source is not complete. Everything about
+    # its rights stays pending rather than being assumed.
+    status: pending_verification
+    access_type: unknown
+    license_status: pending_verification
+    source_reference: not_verified
+    version: unknown
+    train_allowed: false           # nothing is permitted until verification completes
+    validation_allowed: false
+    test_allowed: false
+    unseen_test_allowed: false
+    generalization_groups: []      # a benchmark here, not a source/target pair
+    approximate_size: unknown
+    label_schema:
+      scheme: binary_benign_malicious
+      values: [benign, malicious]
+      description: >-
+        Intended scheme, unverified. Whether this corpus actually states both classes, and
+        under what wording, has not been checked.
+    manipulation_types: not_applicable
+    requires_request: unknown
+    requires_terms_acceptance: unknown
+    redistribution_allowed: pending_verification
+    acquisition:
+      acquired: false
+      access_date: null
+      version: null
+      local_path: null
+    notes: >-
+      Planned QR and URL phishing benchmark. Licence, access route, and redistribution
+      rights are all unverified: no download URL, licence, size, or local availability is
+      claimed. No QR code has been generated and no URL has been scanned.
+
+  # -------------------------------------------------------------------------
+  # Public intelligence sources
+  #
+  # These are evidence sources, not ML training datasets. The registry rejects any
+  # configuration that would let one be used as a training corpus.
+  # -------------------------------------------------------------------------
+
+  phishtank:
+    dataset_id: phishtank
+    name: PhishTank
+    modality: threat_intelligence
+    source_type: intelligence_feed
+    research_role: [threat_intelligence, external_intelligence]
+    status: candidate
+    access_type: unknown
+    license_status: pending_verification
+    source_reference: not_verified
+    version: unknown
+    train_allowed: false           # an evidence source is not a training corpus
+    validation_allowed: false
+    test_allowed: false
+    unseen_test_allowed: false
+    generalization_groups: []
+    approximate_size: not_applicable  # a live feed has no fixed corpus size
+    label_schema:
+      scheme: evidence_state
+      values: [observed, matched, not_matched, unknown]
+      description: >-
+        Evidence states, not class labels. A feed match is evidence about a URL; it is
+        never converted into a training label.
+    manipulation_types: not_applicable
+    requires_request: unknown
+    requires_terms_acceptance: unknown
+    redistribution_allowed: pending_verification
+    acquisition:
+      acquired: false
+      access_date: null
+      version: null
+      local_path: null
+    notes: >-
+      Planned external intelligence for URL corroboration. Not configured as a training
+      dataset. No collector is implemented and no feed has been queried.
+
+  urlhaus:
+    dataset_id: urlhaus
+    name: URLhaus
+    modality: threat_intelligence
+    source_type: intelligence_feed
+    research_role: [threat_intelligence, external_intelligence]
+    status: candidate
+    access_type: unknown
+    license_status: pending_verification
+    source_reference: not_verified
+    version: unknown
+    train_allowed: false
+    validation_allowed: false
+    test_allowed: false
+    unseen_test_allowed: false
+    generalization_groups: []
+    approximate_size: not_applicable  # a live feed has no fixed corpus size
+    label_schema:
+      scheme: evidence_state
+      values: [observed, matched, not_matched, unknown]
+      description: >-
+        Evidence states, not class labels.
+    manipulation_types: not_applicable
+    requires_request: unknown
+    requires_terms_acceptance: unknown
+    redistribution_allowed: pending_verification
+    acquisition:
+      acquired: false
+      access_date: null
+      version: null
+      local_path: null
+    notes: >-
+      Planned external intelligence for malicious-URL corroboration. Not configured as a
+      training dataset. No collector is implemented and no feed has been queried.
+
+  tranco:
+    dataset_id: tranco
+    name: Tranco
+    modality: threat_intelligence
+    source_type: reference_list
+    research_role: [reference]
+    status: candidate
+    access_type: unknown
+    license_status: pending_verification
+    source_reference: not_verified
+    version: unknown
+    train_allowed: false
+    validation_allowed: false
+    test_allowed: false
+    unseen_test_allowed: false
+    generalization_groups: []
+    approximate_size: unknown
+    label_schema:
+      scheme: unlabeled
+      values: []
+      description: >-
+        A popularity ranking, not a labelled corpus. It carries no class labels at all.
+    manipulation_types: not_applicable
+    requires_request: unknown
+    requires_terms_acceptance: unknown
+    redistribution_allowed: pending_verification
+    acquisition:
+      acquired: false
+      access_date: null
+      version: null
+      local_path: null
+    notes: >-
+      Planned reference list for ranking and popularity context. Presence in a ranking is
+      not evidence that a domain is safe, and absence is not evidence that it is
+      malicious. It must never be used as a safety oracle.
+
+# ---------------------------------------------------------------------------
+# Intended cross-dataset experiments
+#
+# Declarative only: the relationship we intend to measure. executed: false everywhere,
+# and validation refuses executed: true until both endpoints are actually available.
+# ---------------------------------------------------------------------------
+generalization:
+
+  - group_id: image_deepfake
+    source: faceforensics_plus_plus
+    target: celeb_df_v2
+    status: planned
+    executed: false
+    notes: >-
+      Train on the source domain, evaluate on the unseen target. Frames would be derived
+      from both video corpora later; no frame extraction has happened.
+
+  - group_id: video_deepfake
+    source: faceforensics_plus_plus
+    target: celeb_df_v2
+    status: planned
+    executed: false
+    notes: >-
+      Same pair as image_deepfake, kept as a separate group because the experiment and
+      its metrics differ.
+
+  - group_id: audio_deepfake
+    source: asvspoof_2021_df
+    target: fakeavceleb
+    status: planned
+    executed: false
+    notes: >-
+      Audio-only evaluation across a spoofing corpus and a multimodal corpus; only the
+      audio components would be used.

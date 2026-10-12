@@ -1,0 +1,100 @@
+{
+  "config": {
+    "count_frames": true,
+    "dry_run": true,
+    "extraction": {
+      "frames_per_video": 4,
+      "image_format": "png",
+      "jpeg_quality": 95,
+      "quality_policy": {
+        "max_mean_intensity": null,
+        "min_dynamic_range": null,
+        "min_height": 32,
+        "min_mean_intensity": null,
+        "min_std_intensity": null,
+        "min_width": 32,
+        "reject_uniform": true
+      },
+      "strategy": "uniform",
+      "strategy_kwargs": {}
+    },
+    "license_filter": [],
+    "source_identity_layout": "drop_first_segment",
+    "split": {
+      "seed": 20260101,
+      "stratify_by_label": true,
+      "test_fraction": 0.09999999999999995,
+      "train_fraction": 0.8,
+      "validation_fraction": 0.1
+    },
+    "verify_source_digests": false
+  },
+  "frame_manifest_hash": "sha256:dry-run-68f25861672e31e9ec9860745f26566ed23e13ac5674ea181eb16e71e9e229dd",
+  "quality": {
+    "kept": 80,
+    "kept_fraction": 1.0,
+    "policy": {
+      "max_mean_intensity": null,
+      "min_dynamic_range": null,
+      "min_height": 32,
+      "min_mean_intensity": null,
+      "min_std_intensity": null,
+      "min_width": 32,
+      "reject_uniform": true
+    },
+    "reason_counts": {},
+    "rejected": 0,
+    "total": 80
+  },
+  "split": {
+    "config": {
+      "seed": 20260101,
+      "stratify_by_label": true,
+      "test_fraction": 0.09999999999999995,
+      "train_fraction": 0.8,
+      "validation_fraction": 0.1
+    },
+    "counts": {
+      "test": 8,
+      "train": 64,
+      "unseen_test": 0,
+      "validation": 8
+    },
+    "group_counts": {
+      "test": 1,
+      "train": 8,
+      "unseen_test": 0,
+      "validation": 1
+    },
+    "leakage": {
+      "assigned_groups": 10,
+      "duplicate_ids": {},
+      "group_count": 10,
+      "is_leak_free": true,
+      "label_counts": {
+        "test": {
+          "fake": 4,
+          "real": 4
+        },
+        "train": {
+          "fake": 32,
+          "real": 32
+        },
+        "validation": {
+          "fake": 4,
+          "real": 4
+        }
+      },
+      "leaked_group_count": 0,
+      "spanning_groups": {},
+      "unassigned_frames": []
+    },
+    "notes": []
+  },
+  "split_content_hash": "sha256:0f6bd712fa02437a322f3b78a9e31b5fe622f7f0a6808d8127a0075e58c63809",
+  "summary": "videos=20 frames=80 rejected=0 groups=10 leak_free=True",
+  "warnings": [
+    "dry run: no frame images were written, so no frame manifest or split artifact was written. Reports describe the plan only.",
+    "80 frame(s) have no usable frame digest and were excluded from exact-duplicate detection; see duplicates.json for the frames and reasons"
+  ]
+}

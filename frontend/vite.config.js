@@ -1,0 +1,15 @@
+import { defineConfig } from "vitest/config";
+import react from "@vitejs/plugin-react";
+// Dev port matched to configs/project.yaml -> services.frontend.dev_port (5173).
+export default defineConfig({
+    plugins: [react()],
+    server: {
+        port: 5173,
+    },
+    test: {
+        globals: true,
+        environment: "jsdom",
+        setupFiles: ["./src/test/setup.ts"],
+        css: false,
+    },
+});
